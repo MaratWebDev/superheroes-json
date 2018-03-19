@@ -19,23 +19,21 @@ function teacher(first, last, age, gender, interests, subject) {
 teacher.prototype = Object.create(person.prototype);
 
 teacher.prototype.greeting = function() {
-  console.log1("No, it's me " + this.name.last + ".");
+  console.log("No, it's me " + this.name.last + ".");
 }
 
-const marat = new teacher("Marat", "F", 21, "male", ["snowboarding", "music", "dance"], "chemistry");
+
+
+
+function student(first, last, age, gender, interests) {
+  person.call(this, first, last, age, gender, interests);
+}
+//student.prototype = Object.create(person.prototype);
+
+student.prototype.greeting = function() {
+  console.log("Yo, it's " + this.name.first + ".");
+}
+
+let marat = new student("Marat", "F", 21, "male", ["snowboarding", "music", "dance"]);
 
 console.table(marat);
-
-
-// function brick() {
-//   this.width = 10;
-//   this.height = 15;
-// }
-
-// function blueBrick() {
-//   brick.call(this);
-//   this.opacity = 2;
-//   this.color = "red";
-// }
-// let newBrick = blueBrick(34, 45,67,64);
-// console.table(newBrick);
